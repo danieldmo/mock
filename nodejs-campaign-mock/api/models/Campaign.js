@@ -5,6 +5,7 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 module.exports = {
+  migrate: 'safe', 
   attributes: {
     id: { 
     	type: 'integer',
