@@ -21,7 +21,7 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
-  // middleware: {
+  middleware: {
 
   /***************************************************************************
   *                                                                          *
@@ -35,6 +35,7 @@ module.exports.http = {
       'cookieParser',
       'session',
       'myRequestLogger',
+      'addHeader',
       'bodyParser',
       'handleBodyParserError',
       'compress',
@@ -45,8 +46,7 @@ module.exports.http = {
       'www',
       'favicon',
       '404',
-      '500',
-      'addHeader'
+      '500'
     ],
 
   /****************************************************************************
@@ -55,15 +55,16 @@ module.exports.http = {
   *                                                                           *
   ****************************************************************************/
 
-    // myRequestLogger: function (req, res, next) {
-    //     console.log("Requested :: ", req.method, req.url);
-    //     return next();
-    // }
-  
-  addHeader: function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  },
+    myRequestLogger: function (req, res, next) {
+        console.log("Requested :: ", req.method, req.url);
+        return next();
+    },
+    
+    addHeader: function(req, res, next) {
+      sails.log.silly('setting Access-Control-Allow-Origin header');
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      return next();
+    }
 
   /***************************************************************************
   *                                                                          *
@@ -76,7 +77,7 @@ module.exports.http = {
 
     // bodyParser: require('skipper')
 
-  // },
+  },
 
   /***************************************************************************
   *                                                                          *
