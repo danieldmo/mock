@@ -19,7 +19,10 @@ module.exports = {
     },
     keywords: {
     	type: 'array',
-    	required: true
+    	required: true,
+    	defaultsTo: function() {
+    	  return [];
+    	}
     }
   }
 };
