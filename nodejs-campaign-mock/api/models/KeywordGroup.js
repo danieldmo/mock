@@ -19,7 +19,6 @@ module.exports = {
     },
     keywords: {
     	type: 'array',
-    	required: true,
     	defaultsTo: function() {
     	  return [];
     	}
