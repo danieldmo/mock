@@ -3,6 +3,7 @@
 > gets a list of Brand Analyses
 
 :GET /{id}
+
 :GET /{name}
 > gets the list of keywords for a brand analises by name or id
 >
